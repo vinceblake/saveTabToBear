@@ -17,12 +17,14 @@ Open up your Bear application and create a new note. The first line should look 
 
 ![img](https://github.com/vinceblake/saveTabToBear/raw/master/screenshots/noteTitle.png)
 
+---
+
 Now that we've got our title, we'll need our note's unique identifier. Click the three dots in the upper right of the note and select `Copy Note's Identifier`:
 
 ![img](https://github.com/vinceblake/saveTabToBear/raw/master/screenshots/copyID.png)
 
 ## Installation
-With the above steps complete, simply double-click the `.alfredworkflow` file to import it into Alfred. You'll be greeted with a screen that looks something like this:
+With the above steps complete, simply double-click the `.alfredworkflow` file to import it into Alfred. You'll be greeted with a screen that includes something like this:
 
 ![img](https://github.com/vinceblake/saveTabToBear/raw/master/screenshots/alfredVars.png)
 
