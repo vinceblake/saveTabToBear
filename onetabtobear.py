@@ -53,7 +53,7 @@ def updateOneTab():
         line = f'{prefix}{line}\n'
         oneTab = line + oneTab
 
-    update = f'bear://x-callback-url/add-text?id={oneTabID}&mode=replace&text={quote(oneTab.strip())}'
+    update = f'bear://x-callback-url/add-text?id={oneTabID}&mode=replace&text={quote(oneTab.strip())}&open_note=no'
     xcall(update)
 
 # Main functionality:
