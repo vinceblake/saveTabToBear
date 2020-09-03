@@ -33,4 +33,9 @@ You will need to update these variables for this to work.
 * `bearNoteID`: The unique identifier you copied above. Just paste it in here.
 * `bearNoteTitle`: I call it BearMarks. You can call it whatever you like. Just make sure it matches what you created in the Preparation steps. 
 * `scriptLocation`: Wherever you chose to place the onetabtobear.py file. 
-* `xCallApp`: Wherever you chose to place the xcall.app directory. I like having it in my Applications folder, but it can be run from anywhere.
+* `xCallApp`: Wherever you chose to place xcall.app. I like having it in my Applications folder, but it can be run from anywhere.
+
+## Usage
+The hotkey defined in the first item of the workflow is what you will press within Chrome to save the tab to Bear. It can be whatever you like.
+
+This workflow creates a "to-do" list of links for you to check out later. By default, the code will remove any items that are "checked off" in the list when the script is run. It will also remove any dates which contain no links beneath them. If you don't want it do that, simply modify the onetabtobear.py file and set `removeCheckedItems = False` instead of `True` in line #8. 
