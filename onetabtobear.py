@@ -2,9 +2,10 @@
 
 from subprocess import Popen, PIPE
 from urllib.parse import quote
-import sqlite3, datetime, sys
+import sqlite3, datetime, sys, re
 
 # Global Variables
+removeCheckedItems = True # Set to false if you want to keep "completed" to-do items when this is run
 bearDbFile = str(sys.argv[3])
 oneTabID = str(sys.argv[4])
 
@@ -38,9 +39,12 @@ def getOneTab(): # Get and return OneTab note from Bear
 
 def updateOneTab():
     oneTab = getOneTab().replace("# BearMarks","")
+    if removeCheckedItems:
+        oneTab = re.sub(r"^\+ .*\n","",oneTab,flags=re.MULTILINE)
+        oneTab = re.sub(r"^\#\#\# .*\n\n","",oneTab,flags=re.MULTILINE)
 
     if url in oneTab:
-        print("URL already present. Skipping.")
+        #print("URL already present. Skipping.")
         return 
 
     now = datetime.datetime.now().strftime("%B %d, %Y")   
@@ -51,7 +55,7 @@ def updateOneTab():
         oneTab = oneTab.replace(prefix,f'{prefix}{line}\n')
     else:
         line = f'{prefix}{line}\n'
-        oneTab = line + oneTab
+        oneTab = line + oneTab    
 
     update = f'bear://x-callback-url/add-text?id={oneTabID}&mode=replace&text={quote(oneTab.strip())}&open_note=no'
     xcall(update)
